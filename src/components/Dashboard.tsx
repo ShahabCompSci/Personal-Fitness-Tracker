@@ -9,22 +9,23 @@ const Dashboard: React.FC = () => {
   const { data } = useFitness();
 
   return (
-    <div className="container">
-      <h1>Personal Fitness Tracker</h1>
+    <section className="container" id="dashboard">
+      <h1>Welcome, {data.userName}!</h1>
       <div className="grid">
         <WorkoutLog />
         <NutritionLog />
         <WaterIntake />
         <ProgressChart />
       </div>
-      <div className="card">
+      <div className="card highlight">
         <h2>Your Progress</h2>
         <p>Workouts Completed: {data.workouts}</p>
         <p>Calories Consumed: {data.calories} kcal</p>
         <p>Water Intake: {data.waterIntake} L</p>
-        <p>Current Weight: {data.weight} kg</p>
+        <p>Current Weight: {data.currentWeight} kg</p>
+        <p>Goal Weight: {data.goalWeight} kg</p>
       </div>
-    </div>
+    </section>
   );
 };
 

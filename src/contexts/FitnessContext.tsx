@@ -1,10 +1,12 @@
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 type FitnessData = {
+  userName: string;
   workouts: number;
   calories: number;
   waterIntake: number;
-  weight: number;
+  currentWeight: number;
+  goalWeight?: number;
 };
 
 type FitnessContextType = {
@@ -13,10 +15,12 @@ type FitnessContextType = {
 };
 
 const defaultData: FitnessData = {
+  userName: 'Guest',
   workouts: 0,
   calories: 0,
   waterIntake: 0,
-  weight: 80,  // Default weight
+  currentWeight: 80,
+  goalWeight: 70,
 };
 
 const FitnessContext = createContext<FitnessContextType | undefined>(undefined);

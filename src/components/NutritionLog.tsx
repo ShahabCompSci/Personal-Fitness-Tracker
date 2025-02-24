@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { useFitness } from '../contexts/FitnessContext';
 
 const NutritionLog: React.FC = () => {
-  const { updateData } = useFitness();
+  const { data, updateData } = useFitness();
   const [calories, setCalories] = useState('');
 
   const handleLogMeal = () => {
-    updateData({ calories: parseInt(calories) || 0 });
+    const cals = parseInt(calories) || 0;
+    updateData({ calories: data.calories + cals });
     setCalories('');
   };
 

@@ -2,10 +2,10 @@ import React from 'react';
 import { useFitness } from '../contexts/FitnessContext';
 
 const WaterIntake: React.FC = () => {
-  const { updateData } = useFitness();
+  const { data, updateData } = useFitness();
 
   const logWater = () => {
-    updateData({ waterIntake: 0.25 }); // 250ml intake
+    updateData({ waterIntake: data.waterIntake + 0.25 });
   };
 
   return (
